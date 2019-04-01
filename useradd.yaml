@@ -1,0 +1,16 @@
+---
+- hosts:
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Add user
+      user:
+        name: "{{ item }}"
+        state: present
+        generate_ssh_key: yes
+      with_items:
+        - bob
+        - ben
+        - ken
+        - jim
+         
